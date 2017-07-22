@@ -17,7 +17,7 @@ private registerPage = RegisterPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private http : Http) {
     this.loginForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
     });
   }
 
