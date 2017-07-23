@@ -4,13 +4,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
+import { MyPortal } from './portal.component';
+
+import { UserPortalPage } from '../pages/user-portal/user-portal';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
-import {PortalModule} from "../portal/portal.module";
 
 import { AngularFireAuth } from 'angularfire2/auth';
 //import * as firebase from 'firebase';
@@ -18,6 +16,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterServiceProvider } from '../providers/register-service/register-service';
+import {AppModule} from "../app/app.module";
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -27,16 +26,13 @@ const cloudSettings: CloudSettings = {
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage
+    MyPortal,
+    UserPortalPage
   ],
   imports: [
     BrowserModule,
-    PortalModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyPortal),
     CloudModule.forRoot(cloudSettings),
     AngularFireModule,
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
@@ -44,10 +40,8 @@ const cloudSettings: CloudSettings = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage
+    MyPortal,
+    UserPortalPage
   ],
   providers: [
     StatusBar,
@@ -56,4 +50,4 @@ const cloudSettings: CloudSettings = {
     RegisterServiceProvider
   ]
 })
-export class AppModule { }
+export class PortalModule { }
