@@ -5,8 +5,7 @@ import { RegisterServiceProvider } from "../../providers/register-service/regist
 import * as firebase from 'firebase';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { UserPortalPage } from '../user-portal/user-portal';
-import { LoginPage } from '../login/login';
+import { LoginPage } from '../../modules/login/login.component';
 import { App, ViewController } from 'ionic-angular';
 
 @Component({
@@ -15,7 +14,6 @@ import { App, ViewController } from 'ionic-angular';
 })
 export class RegisterPage {
   private registrationForm: FormGroup;
-  private userPortalPage: UserPortalPage;
   private loginPage: LoginPage;
 
   constructor(public navCtrl: NavController,

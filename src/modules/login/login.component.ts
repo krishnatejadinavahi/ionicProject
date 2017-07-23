@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import {RegisterPage} from "../register/register";
+import {RegisterPage} from "../../pages/register/register";
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { RegisterServiceProvider } from "../../providers/register-service/register-service";
 import { ToastController } from 'ionic-angular';
-import { UserPortalPage } from '../user-portal/user-portal';
+import { UserPortalPage } from '../../pages/user-portal/user-portal';
 
 @Component({
   selector: 'page-login',

@@ -6,14 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
 import {PortalModule} from "../modules/portal/portal.module";
+import {LoginModule} from '../modules/login/login.module';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-//import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -29,7 +28,6 @@ const cloudSettings: CloudSettings = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
     RegisterPage
   ],
   imports: [
@@ -41,12 +39,12 @@ const cloudSettings: CloudSettings = {
     AngularFireModule,
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule,
+    LoginModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
     RegisterPage
   ],
   providers: [
