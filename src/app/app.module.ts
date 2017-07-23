@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
-import {PortalModule} from "../modules/portal/portal.module";
 import {LoginModule} from '../modules/login/login.module';
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -30,7 +29,6 @@ const cloudSettings: CloudSettings = {
   ],
   imports: [
     BrowserModule,
-    PortalModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings),
