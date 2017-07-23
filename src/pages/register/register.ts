@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { UserPortalPage } from '../user-portal/user-portal';
+import { LoginPage } from '../login/login';
 import { App, ViewController } from 'ionic-angular';
 
 @Component({
@@ -15,6 +16,7 @@ import { App, ViewController } from 'ionic-angular';
 export class RegisterPage {
   private registrationForm: FormGroup;
   private userPortalPage: UserPortalPage;
+  private loginPage: LoginPage;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -50,13 +52,13 @@ export class RegisterPage {
     this.registerService.signUpUser(this.registrationForm.value).then((response) => {
       this.alertCtrl.create({
         title: 'Registration successful',
-        subTitle: "User " + this.registrationForm.value.userName + " successfully created!!",
+        subTitle: "User " + this.registrationForm.value.userName + " successfully created. Please log in to continue!!!",
         buttons: [
           {
             text: 'OK',
             handler: () => {
               this.viewCtrl.dismiss();
-              this.appCtrl.getRootNav().push(UserPortalPage);
+              this.appCtrl.getRootNav().push(LoginPage);
             }
           }
         ]
@@ -70,6 +72,4 @@ export class RegisterPage {
       }).present();
     });
   }
-
-
 }

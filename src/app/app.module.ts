@@ -10,7 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
-import {PortalModule} from "../portal/portal.module";
+import {PortalModule} from "../modules/portal/portal.module";
 
 import { AngularFireAuth } from 'angularfire2/auth';
 //import * as firebase from 'firebase';
