@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import {RegisterPage} from "../../pages/register/register";
+import {RegisterPage} from "./register.component";
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { RegisterServiceProvider } from "../../providers/register-service/register-service";

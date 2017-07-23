@@ -3,10 +3,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from './login.component';
 import { HttpModule } from '@angular/http';
 import {PortalModule} from "../portal/portal.module";
+import { RegisterPage } from './register.component';
 
 @NgModule({
   declarations: [
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     HttpModule,
@@ -15,7 +17,8 @@ import {PortalModule} from "../portal/portal.module";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler }

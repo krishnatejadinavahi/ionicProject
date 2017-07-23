@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { RegisterPage } from '../pages/register/register';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
 import {PortalModule} from "../modules/portal/portal.module";
@@ -27,8 +26,7 @@ const cloudSettings: CloudSettings = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    RegisterPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -44,8 +42,7 @@ const cloudSettings: CloudSettings = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    RegisterPage
+    HomePage
   ],
   providers: [
     StatusBar,
