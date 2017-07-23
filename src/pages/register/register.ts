@@ -3,14 +3,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RegisterServiceProvider } from "../../providers/register-service/register-service";
 import * as firebase from 'firebase';
+import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { UserPortalPage } from '../user-portal/user-portal';
+import { App, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-register',
@@ -18,12 +14,15 @@ import { ToastController } from 'ionic-angular';
 })
 export class RegisterPage {
   private registrationForm: FormGroup;
+  private userPortalPage: UserPortalPage;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     private registerService: RegisterServiceProvider,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController, public viewCtrl: ViewController, public appCtrl: App) {
+
     this.registrationForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       userName: ['', [Validators.required, Validators.email]],
@@ -47,23 +46,21 @@ export class RegisterPage {
     return !this.registrationForm.controls.name.pristine && !this.registrationForm.controls.name.valid;
   }
 
-   /* registerUser() {
-    this.registerService.signUpUser(this.registrationForm.value).then(function register(user) {
-      console.log(user);
-    }, (function error(err) {
-      console.log(this.toastCtrl);
-      this.toastCtrl.create({
-        message: err.message,
-        duration: 3000,
-        position: 'bottom',
-        showCloseButton: true
+  registerUser() {
+    this.registerService.signUpUser(this.registrationForm.value).then((response) => {
+      this.alertCtrl.create({
+        title: 'Registration successful',
+        subTitle: "User " + this.registrationForm.value.userName + " successfully created!!",
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              this.viewCtrl.dismiss();
+              this.appCtrl.getRootNav().push(UserPortalPage);
+            }
+          }
+        ]
       }).present();
-    }).bind(this));
-  }  */
-
-   registerUser() {
-    this.registerService.signUpUser(this.registrationForm.value).then(function register(user) {
-      console.log(user);
     }, (err) => {
       this.toastCtrl.create({
         message: err.message,
@@ -72,7 +69,7 @@ export class RegisterPage {
         showCloseButton: true
       }).present();
     });
-  } 
-  
+  }
+
 
 }

@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { UserPortalPage } from '../pages/user-portal/user-portal';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HttpModule } from '@angular/http';
 
@@ -24,23 +25,13 @@ const cloudSettings: CloudSettings = {
   }
 };
 
-/* export const firebaseConfig = {
-  firebase: {
-    apiKey: 'AIzaSyBdc66UuUWYSkpvhPWCzNORyiyiEdmvAiI',
-    authDomain: 'ionicproject-6c7c4.firebaseapp.com',
-    databaseURL: 'https://ionicproject-6c7c4.firebaseio.com/',
-    projectId: 'ionicproject-6c7c4',
-    storageBucket: 'gs://ionicproject-6c7c4.appspot.com/',
-    messagingSenderId: '149063071876'
-  }
-}; */
-
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    UserPortalPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +47,8 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    UserPortalPage
   ],
   providers: [
     StatusBar,

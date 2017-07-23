@@ -28,11 +28,10 @@
     </ion-list>
 
     <div padding>
-      <button ion-button color="primary" block type="submit" [disabled]="!loginForm.valid">Sign In</button>
+      <button ion-button color="primary" block type="submit" [disabled]="!loginForm.valid" (click)="login()">Sign In</button>
     </div>
     <div padding>
       <button ion-button color="danger" block [navPush]="registerPage">Register</button>
-      <!-- <button ion-button color="danger" block (click)="sendRequest()">Register</button> -->
     </div>
   </form>
 </ion-content>
